@@ -10,12 +10,17 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+    <script src="mycallback.js"></script>
+    <script src = "https://demo.akademie.uni-bremen.de/rest/meta?callback=jsondata" ></script>
+
     <meta name="language" content="de, deutsch, german">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contoso Task Pane Add-in</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="require.js"></script>
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 
@@ -34,10 +39,10 @@
 <body class="ms-font-m ms-welcome ms-Fabric">
 
     <header class="ms-welcome__header ms-bgColor-neutralLighter">
-        <div class="image-container">
-            <img width="90" height="90" src="../../assets/aCat.png" alt="Contoso" title="Contoso" class="image" />
-            <div class="overlay">
-                <h1 class="image-text">Akademie für Weiterbildung der Universität Bremen</h1>
+        <div class="container">
+            <img width="90" height="90" style="width:85%" src="../../assets/aCat.png" alt="Contoso" title="Contoso" class="image" />
+            <div class="middle">
+                <img class="img-text"  src="../../assets/akademie.png"/>
             </div>
         </div>
     </header>
@@ -59,16 +64,17 @@
         </div>
     </main>
     <script>
+         
         $(function () {
-
+            
             $.getJSON("treeData.json", function (data) {
-                console.log(data.fields);
+                /*console.log(data.fields);*/
                 let dataFields = data.fields;
                 let ul = document.querySelector("#jstree_demo_div > ul");
                 console.log(ul)
 
                 $.each(dataFields, function (i, item) {
-                    console.log(item.label);
+                    /*console.log(item.label);*/
 
                     var li = document.createElement("li");
                     li.setAttribute('id', "fieldsLabel" + i);
@@ -92,7 +98,7 @@
                         var ul_sub_child = document.createElement("ul")
                         $.each(block.fields, function (f, label) {
                             
-                            console.log(label.label);
+                            /*console.log(label.label);*/
                             li_sub_child = document.createElement("li")
                             li_sub_child.setAttribute('id',  f);
                             li_sub_child.setAttribute('data-jstree', '{ "icon" : "../../assets/check.png" }');
