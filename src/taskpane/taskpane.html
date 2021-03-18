@@ -11,7 +11,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <script src="mycallback.js"></script>
-    <script src = "https://demo.akademie.uni-bremen.de/rest/meta?callback=jsondata" ></script>
+    <script id="data" src = "https://demo.akademie.uni-bremen.de/rest/meta?callback=aCat" ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <meta name="language" content="de, deutsch, german">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,11 +65,10 @@
         </div>
     </main>
     <script>
-         
         $(function () {
             
             $.getJSON("treeData.json", function (data) {
-                /*console.log(data.fields);*/
+                console.log(data.fields);
                 let dataFields = data.fields;
                 let ul = document.querySelector("#jstree_demo_div > ul");
                 console.log(ul)
