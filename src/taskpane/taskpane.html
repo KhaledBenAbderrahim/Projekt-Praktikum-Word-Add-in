@@ -10,13 +10,13 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <script src="mycallback.js"></script>
-    <script id="data" src = "https://demo.akademie.uni-bremen.de/rest/meta?callback=aCat" ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
 
     <meta name="language" content="de, deutsch, german">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contoso Task Pane Add-in</title>
+
+    <script src="https://demo.akademie.uni-bremen.de/rest/meta?jsonp=aCat"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
@@ -65,8 +65,10 @@
         </div>
     </main>
     <script>
+
         $(function () {
-            
+
+
             $.getJSON("treeData.json", function (data) {
                 console.log(data.fields);
                 let dataFields = data.fields;
