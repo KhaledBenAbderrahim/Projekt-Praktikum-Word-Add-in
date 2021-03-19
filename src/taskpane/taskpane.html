@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contoso Task Pane Add-in</title>
 
-    <script src="https://demo.akademie.uni-bremen.de/rest/meta?jsonp=aCat"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
@@ -65,11 +64,9 @@
         </div>
     </main>
     <script>
+ 
+            function aCat(data) {
 
-        $(function () {
-
-
-            $.getJSON("treeData.json", function (data) {
                 console.log(data.fields);
                 let dataFields = data.fields;
                 let ul = document.querySelector("#jstree_demo_div > ul");
@@ -133,15 +130,14 @@
                     
                 });
 
-            }).fail(function () {
-                console.log("An error has occurred.");
-            });
+            
 
 
-        });
+        };
 
 
     </script>
+    <script src = "https://demo.akademie.uni-bremen.de/rest/meta?jsonp=aCat"></script>
 </body>
 
 </html>
