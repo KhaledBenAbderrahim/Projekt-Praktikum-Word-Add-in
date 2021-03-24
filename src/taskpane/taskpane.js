@@ -13,14 +13,18 @@ import "../../assets/icon-80.png";
 
 Office.onReady(info => {
   if (info.host === Office.HostType.Word) {
-    document.getElementById("sideload-msg").style.display = "none";
-    document.getElementById("app-body").style.display = "flex";
-    document.getElementById("insert-paragraph").onclick = insertParagraph;
-    document.getElementById("insert-table").onclick = insertTable;
+    
+    /*document.getElementById("insert-paragraph").onclick = insertParagraph;
+    document.getElementById("insert-table").onclick = insertTable;*/
+   
+    document.getElementById("button").onclick = button;
+
+
   }
 });
 
 function insertParagraph() {
+  document.getElementById("insert-paragraph").innerText="insert-name"
   Word.run(function (context) {
 
       // TODO1: Queue commands to insert a paragraph into the document.
@@ -60,3 +64,85 @@ function insertTable() {
       }
   });
 }
+
+function blockBeginn() {
+  Word.run(function (context) {
+
+      // TODO1: Queue commands to insert a paragraph into the document.
+      var docBody = context.document.getSelection();
+      docBody.insertText("${B:0} ", "Start");
+
+      return context.sync();
+  })
+  .catch(function (error) {
+      console.log("Error: " + error);
+      if (error instanceof OfficeExtension.Error) {
+          console.log("Debug info: " + JSON.stringify(error.debugInfo));
+      }
+  });
+}
+
+function blockEnde() {
+  Word.run(function (context) {
+
+      // TODO1: Queue commands to insert a paragraph into the document.
+      var docBody = context.document.getSelection();
+      docBody.insertText("${B:1} ", "Start");
+
+      return context.sync();
+  })
+  .catch(function (error) {
+      console.log("Error: " + error);
+      if (error instanceof OfficeExtension.Error) {
+          console.log("Debug info: " + JSON.stringify(error.debugInfo));
+      }
+  });
+}
+
+function button() {
+  if(document.getElementById("button").innerText=="Block Beginn"){
+
+        Word.run(function (context) {
+
+                // TODO1: Queue commands to insert a paragraph into the document.
+                var docBody = context.document.body;
+                docBody.insertParagraph("{B:0} ", "End");
+
+                return context.sync();
+            })
+            .catch(function (error) {
+                console.log("Error: " + error);
+                if (error instanceof OfficeExtension.Error) {
+                    console.log("Debug info: " + JSON.stringify(error.debugInfo));
+                }
+        });
+      document.getElementById("button").innerText="Block Ende" 
+
+
+  }
+    else if(document.getElementById("button").innerText=="Block Ende"){
+
+        Word.run(function (context) {
+
+                // TODO1: Queue commands to insert a paragraph into the document.
+                var docBody = context.document.body;
+                docBody.insertParagraph("{B:1} ", "End");
+
+                return context.sync();
+            })
+            .catch(function (error) {
+                console.log("Error: " + error);
+                if (error instanceof OfficeExtension.Error) {
+                    console.log("Debug info: " + JSON.stringify(error.debugInfo));
+                }
+        });
+      document.getElementById("button").innerText="Block Beginn" 
+
+
+  }
+
+}
+
+
+
+

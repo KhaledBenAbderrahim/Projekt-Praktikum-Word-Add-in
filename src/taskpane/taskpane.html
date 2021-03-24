@@ -19,7 +19,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-    <script src="require.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <script href="taskpane.js" type="text/javaScript"></script>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
@@ -39,11 +41,9 @@
 <body class="ms-font-m ms-welcome ms-Fabric">
 
     <header class="ms-welcome__header ms-bgColor-neutralLighter">
-        <div class="container">
-            <img width="90" height="90" style="width:85%" src="../../assets/aCat.png" alt="Contoso" title="Contoso" class="image" />
-            <div class="middle">
-                <img class="img-text"  src="../../assets/akademie.png"/>
-            </div>
+       
+            <img  src="../../assets/aCat.png" alt="Contoso" title="Contoso" class="image" />
+            
         </div>
     </header>
 
@@ -58,8 +58,12 @@
 
         <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
             <span class="ms-Button-label">
-                <button class="ms-Button" id="insert-paragraph">Insert Zahlungsplan</button><br /><br />
-                <button class="ms-Button" id="insert-table">Insert Table</button><br /><br />
+                <!--<button class="ms-Button" id="insert-paragraph">Insert Zahlungsplan</button><br /><br />
+                <button class="ms-Button" id="insert-table">Insert Table</button><br /><br />-->                
+             
+                <button type="button" class="btn btn-outline-primary" id="button">Block Beginn</button>
+
+
             </span>
         </div>
     </main>
@@ -122,13 +126,15 @@
                 $('#jstree_demo_div').on("changed.jstree", function (e, data) {
                          
                             Word.run(function (context) {
+                                var docBody = context.document.getSelection();
 
-                                context.document.body.insertParagraph("", "Start").insertHtml("${F:" + data.selected + "}", "Start");
+                                docBody.insertHtml("${F:" + data.selected + "}", "Start");
 
                                 return context.sync();
                             })
                     
                 });
+                
 
             
 
@@ -138,6 +144,8 @@
 
     </script>
     <script src = "https://demo.akademie.uni-bremen.de/rest/meta?jsonp=aCat"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
