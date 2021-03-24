@@ -23,6 +23,24 @@ Office.onReady(info => {
   }
 });
 
+function button() {
+  if(document.getElementById("button").innerText=="Block Beginn"){
+
+      blockBeginn()
+      document.getElementById("button").innerText="Block Ende" 
+
+
+  }
+    else if(document.getElementById("button").innerText=="Block Ende"){
+
+      blockEnde()
+      document.getElementById("button").innerText="Block Beginn" 
+
+
+  }
+
+}
+
 function insertParagraph() {
   document.getElementById("insert-paragraph").innerText="insert-name"
   Word.run(function (context) {
@@ -69,8 +87,8 @@ function blockBeginn() {
   Word.run(function (context) {
 
       // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.getSelection();
-      docBody.insertText("${B:0} ", "Start");
+      var docBody = context.document.body;
+      docBody.insertText("${B:0} ", "End");
 
       return context.sync();
   })
@@ -86,8 +104,8 @@ function blockEnde() {
   Word.run(function (context) {
 
       // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.getSelection();
-      docBody.insertText("${B:1} ", "Start");
+      var docBody = context.document.body;
+      docBody.insertText("${B:1} ", "End");
 
       return context.sync();
   })
@@ -99,49 +117,7 @@ function blockEnde() {
   });
 }
 
-function button() {
-  if(document.getElementById("button").innerText=="Block Beginn"){
 
-        Word.run(function (context) {
-
-                // TODO1: Queue commands to insert a paragraph into the document.
-                var docBody = context.document.body;
-                docBody.insertParagraph("{B:0} ", "End");
-
-                return context.sync();
-            })
-            .catch(function (error) {
-                console.log("Error: " + error);
-                if (error instanceof OfficeExtension.Error) {
-                    console.log("Debug info: " + JSON.stringify(error.debugInfo));
-                }
-        });
-      document.getElementById("button").innerText="Block Ende" 
-
-
-  }
-    else if(document.getElementById("button").innerText=="Block Ende"){
-
-        Word.run(function (context) {
-
-                // TODO1: Queue commands to insert a paragraph into the document.
-                var docBody = context.document.body;
-                docBody.insertParagraph("{B:1} ", "End");
-
-                return context.sync();
-            })
-            .catch(function (error) {
-                console.log("Error: " + error);
-                if (error instanceof OfficeExtension.Error) {
-                    console.log("Debug info: " + JSON.stringify(error.debugInfo));
-                }
-        });
-      document.getElementById("button").innerText="Block Beginn" 
-
-
-  }
-
-}
 
 
 
