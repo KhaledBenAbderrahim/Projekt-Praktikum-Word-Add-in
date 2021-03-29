@@ -72,10 +72,10 @@
             <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                  <input type="radio" aria-label="Radio button for following text input">
-                  </div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"checked>
                 </div>
-                <input id="f1" placeholder="Feld1" type="text" class="form-control" aria-label="Text input with radio button">
+                </div>
+                <input id="f1" placeholder="F1 vom Baum waehlend" type="text" class="form-control" aria-label="Text input with radio button">
               </div>
               <div class="input-group mb-3">
                 <select class="custom-select" id="condition">
@@ -103,10 +103,10 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                  </div>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
                 </div>
-                <input id="f2" placeholder="Add Feld2(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
+                </div>
+                <input id="f2" placeholder="F2 vom Baum waehlen(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
               </div>
               
               <button type="button" class="btn btn-primary btn-sm" id="create-condition">Add condition</button><br /><br />
@@ -193,7 +193,14 @@
                                 return context.sync();
                             })
                         }else{
-                            document.getElementById("f1").value = data.selected;
+                            // document.getElementById("f1").value = data.selected;
+                            if($('#flexRadioDefault1').is(':checked')){
+                                document.getElementById("f1").value = data.selected;
+                            }
+                            if($('#flexRadioDefault2').is(':checked')){
+                                document.getElementById("f2").value = data.selected;
+                            }
+
 
                         }
                         
