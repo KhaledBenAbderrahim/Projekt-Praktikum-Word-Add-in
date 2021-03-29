@@ -39,7 +39,7 @@
 
     <header class="ms-welcome__header ms-bgColor-neutralLighter">
        
-            <img  src="../../assets/aCat.png" alt="Contoso" title="Contoso" class="image" />
+            <!-- <img  src="../../assets/aCat.png" alt="Contoso" title="Contoso" class="image" /> -->
             
         </div>
     </header>
@@ -53,6 +53,7 @@
         </div>
 
 
+
         <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
             <span class="ms-Button-label">
                 <!--<button class="ms-Button" id="insert-paragraph">Insert Zahlungsplan</button><br /><br />
@@ -63,6 +64,66 @@
 
             </span>
         </div>
+        <div></div>
+        <button id="hide/show">condition</button>
+
+
+        <div class="condition" id="myDIV" style="display:none" >
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                  <input type="radio" aria-label="Radio button for following text input">
+                  </div>
+                </div>
+                <input id="f1" placeholder="Feld1" type="text" class="form-control" aria-label="Text input with radio button">
+              </div>
+              <div class="input-group mb-3">
+                <select class="custom-select" id="condition">
+                  <option selected>Choose Condition</option>
+                  <option value="1">=</option>
+                  <option value="2"><></option>
+                  <option value="3"><</option>
+                  <option value="3"><</option>
+                  <option value="3">></option>
+
+                </select>
+                
+              </div>
+              <div class="input-group mb-3">
+                <select class="custom-select" id="action">
+                  <option selected>Choose Action</option>
+                  <option value="1">0 = Kompletten Absatz löschen</option>
+                  <option value="2">Verbleibende Platzhalter löschen </option>
+                  <option value="3">Nächsten Platzhalter löschen</option>
+                  <option value="4">Rest des Absatzes löschen</option>
+                  <option value="5">Bis zum nächsten Platzhalter löschen</option>
+                </select>
+            
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" aria-label="Checkbox for following text input">
+                  </div>
+                </div>
+                <input id="f2" placeholder="Add Feld2(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+              
+              <button type="button" class="btn btn-primary btn-sm" id="create-condition">Add condition</button><br /><br />
+
+
+
+
+              
+        </div>
+
+        
+
+
+        
+       
+        
+        
     </main>
     <script>
  
@@ -120,8 +181,10 @@
                 $('#jstree_demo_div').jstree();
                 console.log("herzlich willkomen");
 
+                
                 $('#jstree_demo_div').on("changed.jstree", function (e, data) {
-                         
+                            var x = document.getElementById("myDIV");
+                            if (x.style.display === "none"){
                             Word.run(function (context) {
                                 var docBody = context.document.getSelection();
 
@@ -129,8 +192,14 @@
 
                                 return context.sync();
                             })
+                        }else{
+                            document.getElementById("f1").value = data.selected;
+
+                        }
+                        
                     
                 });
+            
                 
 
             

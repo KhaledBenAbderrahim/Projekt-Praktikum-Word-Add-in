@@ -18,6 +18,8 @@ Office.onReady(info => {
     document.getElementById("insert-table").onclick = insertTable;*/
    
     document.getElementById("button").onclick = button;
+    document.getElementById("hide/show").onclick = myFunction;
+    document.getElementById("create-condition").onclick = addCondition;
 
 
   }
@@ -39,6 +41,40 @@ function button() {
 
   }
 
+}
+
+function blockBeginn() {
+  Word.run(function (context) {
+
+      // TODO1: Queue commands to insert a paragraph into the document.
+      var docBody = context.document.body;
+      docBody.insertText("${B:0} ", "End");
+
+      return context.sync();
+  })
+  .catch(function (error) {
+      console.log("Error: " + error);
+      if (error instanceof OfficeExtension.Error) {
+          console.log("Debug info: " + JSON.stringify(error.debugInfo));
+      }
+  });
+}
+
+function blockEnde() {
+  Word.run(function (context) {
+
+      // TODO1: Queue commands to insert a paragraph into the document.
+      var docBody = context.document.body;
+      docBody.insertText("${B:1} ", "End");
+
+      return context.sync();
+  })
+  .catch(function (error) {
+      console.log("Error: " + error);
+      if (error instanceof OfficeExtension.Error) {
+          console.log("Debug info: " + JSON.stringify(error.debugInfo));
+      }
+  });
 }
 
 function insertParagraph() {
@@ -83,39 +119,41 @@ function insertTable() {
   });
 }
 
-function blockBeginn() {
-  Word.run(function (context) {
-
-      // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.body;
-      docBody.insertText("${B:0} ", "End");
-
-      return context.sync();
-  })
-  .catch(function (error) {
-      console.log("Error: " + error);
-      if (error instanceof OfficeExtension.Error) {
-          console.log("Debug info: " + JSON.stringify(error.debugInfo));
-      }
-  });
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
 
-function blockEnde() {
-  Word.run(function (context) {
+function addCondition(){
+      var action = document.getElementById("action");
+      var condition = document.getElementById("condition");
 
-      // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.body;
-      docBody.insertText("${B:1} ", "End");
+      var feld1Input = document.getElementById("f1").value;
+      var feld2Input = (document.getElementById("f2").value.length>0)? document.getElementById("f2").value+":":document.getElementById("f2").value ;
+      var actionResult =  action.options[action.selectedIndex].value;
+      var conditionResult =  condition.options[condition.selectedIndex].text;
+      Word.run(function (context) {
 
-      return context.sync();
-  })
-  .catch(function (error) {
-      console.log("Error: " + error);
-      if (error instanceof OfficeExtension.Error) {
-          console.log("Debug info: " + JSON.stringify(error.debugInfo));
-      }
-  });
+        // TODO1: Queue commands to insert a paragraph into the document.
+        var docBody = context.document.body;
+        docBody.insertParagraph("${C:"+feld1Input+":"+conditionResult+":"+feld2Input+actionResult+"}" , "Start");
+
+        return context.sync();
+    })
+    .catch(function (error) {
+        console.log("Error: " + error);
+        if (error instanceof OfficeExtension.Error) {
+            console.log("Debug info: " + JSON.stringify(error.debugInfo));
+        }
+    });
+
 }
+
+
 
 
 
