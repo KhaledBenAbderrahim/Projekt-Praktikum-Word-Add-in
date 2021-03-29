@@ -52,51 +52,52 @@
             <ul id="fields"></ul>
         </div>
 
-
-
-        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl form-control">
             <span class="ms-Button-label">
                 <!--<button class="ms-Button" id="insert-paragraph">Insert Zahlungsplan</button><br /><br />
                 <button class="ms-Button" id="insert-table">Insert Table</button><br /><br />-->                
              
-                <button type="button" class="btn btn-outline-primary" id="button">Block Beginn</button>
+                <button type="button" class="btn btn-primary btn-sm form-control" id="button">Block Beginn</button>
 
 
             </span>
         </div>
-        <div></div>
-        <button id="hide/show">condition</button>
-
-
+        <hr>
+        
+        <div class="form-control">
+        <button class="form-control btn btn-primary btn-sm"   id="hide/show">condition</button>
+        </div>
         <div class="condition" id="myDIV" style="display:none" >
+            
             <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"checked>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 </div>
                 </div>
-                <input id="f1" placeholder="F1 vom Baum waehlend" type="text" class="form-control" aria-label="Text input with radio button">
+                <input id="f1" placeholder="F1  auswaehlend" type="text" class="form-control" aria-label="Text input with radio button" >
               </div>
-              <div class="input-group mb-3">
-                <select class="custom-select" id="condition">
+              <div class="form-control">
+                <select class="form-control" id="condition" required>
                   <option selected>Choose Condition</option>
                   <option value="1">=</option>
                   <option value="2"><></option>
                   <option value="3"><</option>
                   <option value="3"><</option>
                   <option value="3">></option>
+                  <div class="invalid-feedback">Example invalid custom select feedback</div>
 
                 </select>
                 
               </div>
-              <div class="input-group mb-3">
-                <select class="custom-select" id="action">
+              <div class="form-control">
+                <select class="form-control" id="action">
                   <option selected>Choose Action</option>
-                  <option value="1">0 = Kompletten Absatz löschen</option>
-                  <option value="2">Verbleibende Platzhalter löschen </option>
-                  <option value="3">Nächsten Platzhalter löschen</option>
-                  <option value="4">Rest des Absatzes löschen</option>
-                  <option value="5">Bis zum nächsten Platzhalter löschen</option>
+                  <option value="0">0 = Kompletten Absatz löschen</option>
+                  <option value="1">1 = Verbleibende Platzhalter löschen </option>
+                  <option value="2">2 = Nächsten Platzhalter löschen</option>
+                  <option value="3">3 = Rest des Absatzes löschen</option>
+                  <option value="4">4 = Bis zum nächsten Platzhalter löschen</option>
                 </select>
             
               </div>
@@ -106,16 +107,18 @@
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
                 </div>
                 </div>
-                <input id="f2" placeholder="F2 vom Baum waehlen(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
+                <input id="f2" placeholder="F2 auswaehlen(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
               </div>
-              
-              <button type="button" class="btn btn-primary btn-sm" id="create-condition">Add condition</button><br /><br />
-
-
+              <div class="form-control">
+              <button type="button" class="btn btn-success btn-sm form-control" id="create-condition">Add condition</button>
+              </div>
+            
 
 
               
         </div>
+
+        
 
         
 

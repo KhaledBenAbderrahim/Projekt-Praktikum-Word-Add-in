@@ -29,14 +29,17 @@ function button() {
   if(document.getElementById("button").innerText=="Block Beginn"){
 
       blockBeginn()
-      document.getElementById("button").innerText="Block Ende" 
+      document.getElementById("button").innerText="Block Ende"
+      document.getElementById("button").className="btn btn-danger btn-sm form-control"
 
 
   }
     else if(document.getElementById("button").innerText=="Block Ende"){
 
       blockEnde()
-      document.getElementById("button").innerText="Block Beginn" 
+      document.getElementById("button").innerText="Block Beginn"
+      document.getElementById("button").className="btn btn-primary btn-sm form-control"
+ 
 
 
   }
@@ -77,47 +80,47 @@ function blockEnde() {
   });
 }
 
-function insertParagraph() {
-  document.getElementById("insert-paragraph").innerText="insert-name"
-  Word.run(function (context) {
+// function insertParagraph() {
+//   document.getElementById("insert-paragraph").innerText="insert-name"
+//   Word.run(function (context) {
 
-      // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.body;
-      docBody.insertParagraph("Zahlungsplan ", "Start");
+//       // TODO1: Queue commands to insert a paragraph into the document.
+//       var docBody = context.document.body;
+//       docBody.insertParagraph("Zahlungsplan ", "Start");
 
-      return context.sync();
-  })
-  .catch(function (error) {
-      console.log("Error: " + error);
-      if (error instanceof OfficeExtension.Error) {
-          console.log("Debug info: " + JSON.stringify(error.debugInfo));
-      }
-  });
-}
+//       return context.sync();
+//   })
+//   .catch(function (error) {
+//       console.log("Error: " + error);
+//       if (error instanceof OfficeExtension.Error) {
+//           console.log("Debug info: " + JSON.stringify(error.debugInfo));
+//       }
+//   });
+// }
 
-function insertTable() {
-  Word.run(function (context) {
+// function insertTable() {
+//   Word.run(function (context) {
 
-      // TODO1: Queue commands to get a reference to the paragraph
-      //        that will proceed the table.
-      var secondParagraph = context.document.body.paragraphs.getFirst().getNext();
-      // TODO2: Queue commands to create a table and populate it with data.
-      var tableData = [
-        ["Fällig am", "Fälliger Betrag", "Saldo"],
-        ["122020", "1000", "0"],
-        ["012021", "1000", "0"],
-        ["022021", "1000", "-1000"],
-      ];
-      secondParagraph.insertTable(4, 3, "After", tableData);
-      return context.sync();
-  })
-  .catch(function (error) {
-      console.log("Error: " + error);
-      if (error instanceof OfficeExtension.Error) {
-          console.log("Debug info: " + JSON.stringify(error.debugInfo));
-      }
-  });
-}
+//       // TODO1: Queue commands to get a reference to the paragraph
+//       //        that will proceed the table.
+//       var secondParagraph = context.document.body.paragraphs.getFirst().getNext();
+//       // TODO2: Queue commands to create a table and populate it with data.
+//       var tableData = [
+//         ["Fällig am", "Fälliger Betrag", "Saldo"],
+//         ["122020", "1000", "0"],
+//         ["012021", "1000", "0"],
+//         ["022021", "1000", "-1000"],
+//       ];
+//       secondParagraph.insertTable(4, 3, "After", tableData);
+//       return context.sync();
+//   })
+//   .catch(function (error) {
+//       console.log("Error: " + error);
+//       if (error instanceof OfficeExtension.Error) {
+//           console.log("Debug info: " + JSON.stringify(error.debugInfo));
+//       }
+//   });
+// }
 
 function myFunction() {
   var x = document.getElementById("myDIV");
