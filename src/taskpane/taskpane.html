@@ -64,9 +64,11 @@
         </div>
         <hr>
         
+        
         <div class="form-control">
-        <button class="form-control btn btn-primary btn-sm"   id="hide/show">condition</button>
+        <button class="form-control btn btn-primary btn-sm"   id="hide/show">Bedingung</button>
         </div>
+        
         <div class="condition" id="myDIV" style="display:none" >
             
             <div class="input-group">
@@ -82,9 +84,10 @@
                   <option selected>Choose Condition</option>
                   <option value="1">=</option>
                   <option value="2"><></option>
-                  <option value="3"><</option>
-                  <option value="3"><</option>
                   <option value="3">></option>
+                  <option value="4"><</option>
+                  <option value="5">>=</option>
+                  <option value="6"><=</option>
                   <div class="invalid-feedback">Example invalid custom select feedback</div>
 
                 </select>
@@ -112,6 +115,10 @@
               <div class="form-control">
               <button type="button" class="btn btn-success btn-sm form-control" id="create-condition">Add condition</button>
               </div>
+              <div id="alert" class="alert alert-danger" role="alert" style="display:none">
+                Feld 1 , Bedingung und Aktion sind Pflichtfelder
+              </div>
+              
             
 
 

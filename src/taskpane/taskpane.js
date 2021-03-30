@@ -50,8 +50,8 @@ function blockBeginn() {
   Word.run(function (context) {
 
       // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.body;
-      docBody.insertText("${B:0} ", "End");
+      var docBody = context.document.getSelection();
+      docBody.insertHtml("${B:0} ", "End");
 
       return context.sync();
   })
@@ -67,8 +67,8 @@ function blockEnde() {
   Word.run(function (context) {
 
       // TODO1: Queue commands to insert a paragraph into the document.
-      var docBody = context.document.body;
-      docBody.insertText("${B:1} ", "End");
+      var docBody = context.document.getSelection();
+      docBody.insertHtml("${B:1} ", "End");
 
       return context.sync();
   })
@@ -139,11 +139,13 @@ function addCondition(){
       var feld2Input = (document.getElementById("f2").value.length>0)? document.getElementById("f2").value+":":document.getElementById("f2").value ;
       var actionResult =  action.options[action.selectedIndex].value;
       var conditionResult =  condition.options[condition.selectedIndex].text;
+      var x = document.getElementById("alert")
+      if(feld1Input.length>0 && actionResult!="Choose Action" && conditionResult!="Choose Condition" ){
       Word.run(function (context) {
 
         // TODO1: Queue commands to insert a paragraph into the document.
-        var docBody = context.document.body;
-        docBody.insertParagraph("${C:"+feld1Input+":"+conditionResult+":"+feld2Input+actionResult+"}" , "Start");
+        var docBody = context.document.getSelection();
+        docBody.insertHtml("${C:"+feld1Input+":"+conditionResult+":"+feld2Input+actionResult+"}" , "Start");
 
         return context.sync();
     })
@@ -153,6 +155,10 @@ function addCondition(){
             console.log("Debug info: " + JSON.stringify(error.debugInfo));
         }
     });
+    x.style.display = "none"
+  }else{
+    x.style.display = "block"
+  }
 
 }
 
