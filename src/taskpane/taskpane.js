@@ -135,8 +135,9 @@ function addCondition(){
       var action = document.getElementById("action");
       var condition = document.getElementById("condition");
 
+      var checked = document.getElementById("check").checked;
       var feld1Input = document.getElementById("f1").value;
-      var feld2Input = (document.getElementById("f2").value.length>0)? document.getElementById("f2").value+":":document.getElementById("f2").value ;
+      var feld2Input = checked?((document.getElementById("f2").value.length>0)? document.getElementById("f2").value+":":document.getElementById("f2").value):"" ;
       var actionResult =  action.options[action.selectedIndex].value;
       var conditionResult =  condition.options[condition.selectedIndex].text;
       var x = document.getElementById("alert")
