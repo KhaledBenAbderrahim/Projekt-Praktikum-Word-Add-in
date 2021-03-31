@@ -145,7 +145,7 @@ function addCondition(){
 
         // TODO1: Queue commands to insert a paragraph into the document.
         var docBody = context.document.getSelection();
-        docBody.insertHtml("${C:"+feld1Input+":"+conditionResult+":"+feld2Input+actionResult+"}" , "Start");
+        docBody.insertHtml("${C:"+feld1Input+":"+conditionResult+feld2Input+actionResult+"}" , "Start");
 
         return context.sync();
     })

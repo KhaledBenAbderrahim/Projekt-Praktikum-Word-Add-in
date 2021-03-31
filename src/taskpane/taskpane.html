@@ -71,12 +71,8 @@
         
         <div class="condition" id="myDIV" style="display:none" >
             
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                </div>
-                </div>
+            <div class="input-group form-control">
+                
                 <input id="f1" placeholder="F1  auswaehlend" type="text" class="form-control" aria-label="Text input with radio button" >
               </div>
               <div class="form-control">
@@ -93,6 +89,12 @@
                 </select>
                 
               </div>
+              <div class="input-group mb-3 form-control">
+                <div class="input-group-text">
+                    <input id="check" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                  </div>
+                    <input id="f2" placeholder="F2 auswaehlen(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
               <div class="form-control">
                 <select class="form-control" id="action">
                   <option selected>Choose Action</option>
@@ -104,14 +106,7 @@
                 </select>
             
               </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
-                </div>
-                </div>
-                <input id="f2" placeholder="F2 auswaehlen(optional)" type="text" class="form-control" aria-label="Text input with checkbox">
-              </div>
+              
               <div class="form-control">
               <button type="button" class="btn btn-success btn-sm form-control" id="create-condition">Add condition</button>
               </div>
@@ -203,13 +198,28 @@
                                 return context.sync();
                             })
                         }else{
-                            // document.getElementById("f1").value = data.selected;
-                            if($('#flexRadioDefault1').is(':checked')){
-                                document.getElementById("f1").value = data.selected;
-                            }
-                            if($('#flexRadioDefault2').is(':checked')){
-                                document.getElementById("f2").value = data.selected;
-                            }
+                            
+                            // $( "#f1" ).focus(function() {
+                            //     document.getElementById("f1").value = data.selected;
+                            // });
+                            // if($("#f1").is(":focus")){
+                            //     document.getElementById("f1").value = data.selected;
+                            // }
+                            
+                                
+                            
+                            // $( "#f2" ).focus(function() {
+                            //     document.getElementById("f2").value = data.selected;
+                            // });
+
+                                if(!($('#check').is(':checked'))){
+                                    document.getElementById("f1").value = data.selected;
+                                }
+                                if($('#check').is(':checked')){
+                                    document.getElementById("f2").value = "F"+data.selected;
+                                }
+
+                           
 
 
                         }
