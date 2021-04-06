@@ -139,10 +139,11 @@ function addCondition(){
       var feld1Input = document.getElementById("f1").value;
       var feld2Input = checked?document.getElementById("f2").value:"" ;
 
-      var actionResult =  ":" + action.options[action.selectedIndex].value;
+      var action = action.options[action.selectedIndex].value;
+      var actionResult =  ":" + action;
       var conditionResult =  condition.options[condition.selectedIndex].text;
       var x = document.getElementById("alert")
-      if(feld1Input.length>0 && actionResult!=":Action" && conditionResult!="Operator" ){
+      if(feld1Input.length>0 && action!="Aktion" && conditionResult!="Operator" ){
       Word.run(function (context) {
 
         // TODO1: Queue commands to insert a paragraph into the document.
