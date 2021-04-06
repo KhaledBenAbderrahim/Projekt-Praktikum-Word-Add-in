@@ -48,6 +48,10 @@
 
     <main id="app-body" class="ms-welcome__main" style="display: block;">
 
+        <div class="form-outline">
+            <input id="s" type="text" id="typeText" class="form-control" placeholder="Feld suchen"  />
+          </div>
+
         <div id="jstree_demo_div">
             <ul id="fields"></ul>
         </div>
@@ -77,7 +81,7 @@
               </div>
               <div class="form-control">
                 <select class="form-control" id="condition" required>
-                  <option selected>Choose Condition</option>
+                  <option selected>Operator</option>
                   <option value="1">=</option>
                   <option value="2"><></option>
                   <option value="3">></option>
@@ -97,7 +101,7 @@
               </div>
               <div class="form-control">
                 <select class="form-control" id="action">
-                  <option selected>Choose Action</option>
+                  <option selected>Aktion</option>
                   <option value="0">0 = Kompletten Absatz löschen</option>
                   <option value="1">1 = Verbleibende Platzhalter löschen </option>
                   <option value="2">2 = Nächsten Platzhalter löschen</option>
@@ -183,7 +187,19 @@
 
                 });
 
-                $('#jstree_demo_div').jstree();
+                $('#jstree_demo_div').jstree(
+                                        {
+                        "plugins" : [ "search" ]
+                    }
+                );
+                var to = false;
+                $('#s').keyup(function () {
+                    if(to) { clearTimeout(to); }
+                    to = setTimeout(function () {
+                    var v = $('#s').val();
+                    $('#jstree_demo_div').jstree(true).search(v);
+                    }, 250);
+                });
                 console.log("herzlich willkomen");
 
                 
@@ -193,8 +209,7 @@
                             Word.run(function (context) {
                                 var docBody = context.document.getSelection();
 
-                                docBody.insertHtml("${F:" + data.selected + "}", "Start");
-
+                                docBody.insertText("${F:" + data.selected + "}", Word.InsertLocation.end);
                                 return context.sync();
                             })
                         }else{

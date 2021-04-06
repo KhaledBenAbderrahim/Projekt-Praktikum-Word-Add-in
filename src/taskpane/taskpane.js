@@ -137,11 +137,12 @@ function addCondition(){
 
       var checked = document.getElementById("check").checked;
       var feld1Input = document.getElementById("f1").value;
-      var feld2Input = checked?((document.getElementById("f2").value.length>0)? document.getElementById("f2").value+":":document.getElementById("f2").value):"" ;
-      var actionResult =  action.options[action.selectedIndex].value;
+      var feld2Input = checked?document.getElementById("f2").value:"" ;
+
+      var actionResult =  ":" + action.options[action.selectedIndex].value;
       var conditionResult =  condition.options[condition.selectedIndex].text;
       var x = document.getElementById("alert")
-      if(feld1Input.length>0 && actionResult!="Choose Action" && conditionResult!="Choose Condition" ){
+      if(feld1Input.length>0 && actionResult!=":Action" && conditionResult!="Auswählen" ){
       Word.run(function (context) {
 
         // TODO1: Queue commands to insert a paragraph into the document.
