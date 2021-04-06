@@ -142,7 +142,7 @@ function addCondition(){
       var actionResult =  ":" + action.options[action.selectedIndex].value;
       var conditionResult =  condition.options[condition.selectedIndex].text;
       var x = document.getElementById("alert")
-      if(feld1Input.length>0 && actionResult!=":Action" && conditionResult!="Auswählen" ){
+      if(feld1Input.length>0 && actionResult!=":Action" && conditionResult!="Operator" ){
       Word.run(function (context) {
 
         // TODO1: Queue commands to insert a paragraph into the document.
