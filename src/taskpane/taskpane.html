@@ -208,8 +208,9 @@
                             if (x.style.display === "none"){
                             Word.run(function (context) {
                                 var docBody = context.document.getSelection();
+                                docBody.insertHtml("${F:" + data.selected + "}", Word.InsertLocation.end);
+                                docBody.select("End")
 
-                                docBody.insertText("${F:" + data.selected + "}", Word.InsertLocation.end);
                                 return context.sync();
                             })
                         }else{

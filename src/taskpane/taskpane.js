@@ -52,6 +52,7 @@ function blockBeginn() {
       // TODO1: Queue commands to insert a paragraph into the document.
       var docBody = context.document.getSelection();
       docBody.insertHtml("${B:0} ", "End");
+      docBody.select("End")
 
       return context.sync();
   })
@@ -69,6 +70,8 @@ function blockEnde() {
       // TODO1: Queue commands to insert a paragraph into the document.
       var docBody = context.document.getSelection();
       docBody.insertHtml("${B:1} ", "End");
+      docBody.select("End");
+
 
       return context.sync();
   })
@@ -149,6 +152,8 @@ function addCondition(){
         // TODO1: Queue commands to insert a paragraph into the document.
         var docBody = context.document.getSelection();
         docBody.insertHtml("${C:"+feld1Input+":"+conditionResult+feld2Input+actionResult+"}" , "Start");
+        docBody.select("End")
+
 
         return context.sync();
     })
