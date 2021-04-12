@@ -74,11 +74,11 @@
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Add-in anzeigen"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Ihr Add-In wurde erfolgreich geladen. Gehen Sie zur Registerkarte HOME und klicken Sie auf 'Add-in anzeigen', um zu beginnen."/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Klicken Sie hier, um einen Add-in anzuzeigen"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

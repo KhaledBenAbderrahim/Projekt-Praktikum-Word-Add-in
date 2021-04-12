@@ -20,6 +20,7 @@ Office.onReady(info => {
     document.getElementById("button").onclick = button;
     document.getElementById("hide/show").onclick = myFunction;
     document.getElementById("create-condition").onclick = addCondition;
+    
 
 
   }
@@ -52,7 +53,12 @@ function blockBeginn() {
       // TODO1: Queue commands to insert a paragraph into the document.
       var docBody = context.document.getSelection();
       docBody.insertHtml("${B:0} ", "End");
-      docBody.select("End")
+      const ctrl = docBody.insertContentControl()
+      ctrl.title = "Select";
+      ctrl.tag = "Select";
+      ctrl.appearance = "BoundingBox";
+      ctrl.color = "#589CFB";
+      ctrl.parentBody.select("End")
 
       return context.sync();
   })
@@ -70,7 +76,12 @@ function blockEnde() {
       // TODO1: Queue commands to insert a paragraph into the document.
       var docBody = context.document.getSelection();
       docBody.insertHtml("${B:1} ", "End");
-      docBody.select("End");
+      const ctrl = docBody.insertContentControl()
+      ctrl.title = "Select";
+      ctrl.tag = "Select";
+      ctrl.appearance = "BoundingBox";
+      ctrl.color = "#589CFB";
+      ctrl.parentBody.select("End")
 
 
       return context.sync();
@@ -82,6 +93,8 @@ function blockEnde() {
       }
   });
 }
+
+
 
 // function insertParagraph() {
 //   document.getElementById("insert-paragraph").innerText="insert-name"
@@ -152,7 +165,12 @@ function addCondition(){
         // TODO1: Queue commands to insert a paragraph into the document.
         var docBody = context.document.getSelection();
         docBody.insertHtml("${C:"+feld1Input+":"+conditionResult+feld2Input+actionResult+"}" , "Start");
-        docBody.select("End")
+        const ctrl = docBody.insertContentControl()
+        ctrl.title = "Select";
+        ctrl.tag = "Select";
+        ctrl.appearance = "BoundingBox";
+        ctrl.color = "#589CFB";
+        ctrl.parentBody.select("End")
 
 
         return context.sync();

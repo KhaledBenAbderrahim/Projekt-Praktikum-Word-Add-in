@@ -21,31 +21,16 @@
     padding: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    display: -webkit-flex;
-    display: inline-block;
+    display: none;
+    display: none;
     -webkit-flex-direction: column;
     flex-direction: row;
     align-items: center;
     width: 100%;
-    height:20%;
+    height:0%;
  }
  
-.image {
-    opacity: 1;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-    position: middle;
-    width: 100%;
-    padding: 16px 120px;
-    margin:0px;
 
-
-
-   
-   
- 
-  }
   
   .middle {
     transition: .5s ease;
@@ -60,23 +45,9 @@
 
   }
   
-  .container:hover .image {
-    opacity: 0;
-    
-  }
+
   
-  .container:hover .middle {
-    opacity: 1;
-  }
-  
-  .img-text {
-    font-size: 40px;
-    padding: 16px 16px;
-    width: 100%;
-    height: auto;
-    margin:10px auto;
-    display: block;
-  }
+
 
 
 
@@ -135,6 +106,11 @@
 b {
     font-weight: bold;
 }
+
+input:-ms-input-placeholder {  
+	color: rgb(137, 136, 139) !important;  
+	}
+
 
 
 

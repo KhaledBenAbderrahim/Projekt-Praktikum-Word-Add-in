@@ -48,7 +48,7 @@
 
     <main id="app-body" class="ms-welcome__main" style="display: block;">
 
-        <div class="form-outline">
+        <div class="form-control">
             <input id="s" type="text" id="typeText" class="form-control" placeholder="Feld suchen"  />
           </div>
 
@@ -112,7 +112,7 @@
               </div>
               
               <div class="form-control">
-              <button type="button" class="btn btn-success btn-sm form-control" id="create-condition">Add condition</button>
+              <button type="button" class="btn btn-success btn-sm form-control" id="create-condition">Bedingung hinzufügen</button>
               </div>
               <div id="alert" class="alert alert-danger" role="alert" style="display:none">
                 Feld 1 , Bedingung und Aktion sind Pflichtfelder
@@ -209,7 +209,13 @@
                             Word.run(function (context) {
                                 var docBody = context.document.getSelection();
                                 docBody.insertHtml("${F:" + data.selected + "}", Word.InsertLocation.end);
-                                docBody.select("End")
+                                const ctrl = docBody.insertContentControl()
+                                ctrl.title = "Select";
+                                ctrl.tag = "Select";
+                                ctrl.appearance = "BoundingBox";
+                                ctrl.color = "#589CFB";
+                                ctrl.parentBody.select("End")
+
 
                                 return context.sync();
                             })
@@ -242,7 +248,27 @@
                         
                     
                 });
-            
+
+                // Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (asyncResult) {
+                //     asyncResult.value.select()
+                //     });
+                
+                    Word.run(function (context) {
+
+                            // TODO1: Queue commands to insert a paragraph into the document.
+                            var doc = context.document;
+                            var originalRange = doc.getSelection();
+                            originalRange.select();
+                            
+
+                            return context.sync();
+                        })
+                        .catch(function (error) {
+                            console.log("Error: " + error);
+                            if (error instanceof OfficeExtension.Error) {
+                                console.log("Debug info: " + JSON.stringify(error.debugInfo));
+                            }
+                        });
                 
 
             
