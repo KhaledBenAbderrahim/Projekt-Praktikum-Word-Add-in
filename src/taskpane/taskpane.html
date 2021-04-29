@@ -135,7 +135,27 @@
         
     </main>
     <script>
- 
+        
+      
+
+            /**
+             * Nimmt die json.Data als Baumobjekt und zeigt sie auf der Taskbereichsseite des Add-Ins an.
+             * 
+             * Diese Funktion besteht aus drei Funktionen:
+             * 
+             * 1. Das DOM wird gebaut mit veschachtelten "li" und "ul"  um den Baum darzustellen.
+             * Es wurde mit drei verschachtelten Schleifen implementiert, weil json.Data drei Ebenen hat.
+             * Die erste Schleife fügt die erste Ebene des Baums bzw die "fieldsLable" -IDs ein.
+             * Die zweite Schleife fügt die zweite ebene des Baums bzw die "blockLabel" -IDs ein.
+             * Die dritte Schleife fügt die letzte Ebene des Baums und bzw die Blätter ein.
+             * 
+             * 2. Ruft jsTree auf, um den Baum interaktiv zu gestalten.
+             * 
+             * 3. Aktiviert zwei CallBack-Funktionen: onChangedSearch und onChangedTree.
+             * 
+             * @see https://www.jstree.com/ 
+             * @param {object} data - Das Objekt, das den Baum darstellt. 
+             */
             function aCat(data) {
 
                 console.log(data.fields);
@@ -193,6 +213,11 @@
                     }
                 );
                 var to = false;
+                /**
+                 * Dies ist die CallBack-Funktion, die aufgerufen wird, wenn der Benutzer das Suchfeld ändert.
+                 * Diese Funktion ruft dann jsTree auf, um den Wert im Suchfeld zu finden.
+                 * @see https://www.jstree.com/api/#/?f=search(
+                 */
                 $('#s').keyup(function () {
                     if(to) { clearTimeout(to); }
                     to = setTimeout(function () {
@@ -202,7 +227,12 @@
                 });
                 console.log("herzlich willkomen");
 
-                
+                /**
+                 * Dies ist die CallBack-Funktion, die von jsTree aufgerufen wird, wenn der Benutzer mit dem Baum interagiert.
+                 * @see https://www.jstree.com/api/#/?q=.jstree%20Event&f=changed.jstree
+                 * @param {object} e - Parameter, die Ereignisinformationen enthalten (hier nicht verwendet).
+                 * @param {object} data - Enthält Informationen zum angeklickten Knoten (Element des Baums).
+                 */
                 $('#jstree_demo_div').on("changed.jstree", function (e, data) {
                             var x = document.getElementById("myDIV");
                             if (x.style.display === "none"){
@@ -210,7 +240,7 @@
                                 var docBody = context.document.getSelection();
                                 docBody.insertHtml("${F:" + data.selected + "}", Word.InsertLocation.end);
                                 const ctrl = docBody.insertContentControl()
-                                ctrl.title = "Select";
+                                ctrl.title = "" + data.instance.get_node(data.selected).text;
                                 ctrl.tag = "Select";
                                 ctrl.appearance = "BoundingBox";
                                 ctrl.color = "#589CFB";
@@ -221,18 +251,6 @@
                             })
                         }else{
                             
-                            // $( "#f1" ).focus(function() {
-                            //     document.getElementById("f1").value = data.selected;
-                            // });
-                            // if($("#f1").is(":focus")){
-                            //     document.getElementById("f1").value = data.selected;
-                            // }
-                            
-                                
-                            
-                            // $( "#f2" ).focus(function() {
-                            //     document.getElementById("f2").value = data.selected;
-                            // });
 
                                 if(!($('#check').is(':checked'))){
                                     document.getElementById("f1").value = data.selected;
@@ -240,18 +258,10 @@
                                 if($('#check').is(':checked')){
                                     document.getElementById("f2").value = "F"+data.selected;
                                 }
+                            }
+                        });
 
-                           
-
-
-                        }
-                        
-                    
-                });
-
-                // Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (asyncResult) {
-                //     asyncResult.value.select()
-                //     });
+                
                 
                     Word.run(function (context) {
 
@@ -278,6 +288,7 @@
 
 
     </script>
+    <script src="myCustomScript.js"></script>
     <script src = "https://demo.akademie.uni-bremen.de/rest/meta?jsonp=aCat"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

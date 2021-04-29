@@ -72,13 +72,13 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Add-in anzeigen"/>
+        <bt:String id="GetStarted.Title" DefaultValue="mit aCat Add-in Beginnen!"/>
+        <bt:String id="CommandsGroup.Label" DefaultValue="aCat"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Mein aCat anzeigen"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Ihr Add-In wurde erfolgreich geladen. Gehen Sie zur Registerkarte HOME und klicken Sie auf 'Add-in anzeigen', um zu beginnen."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Klicken Sie hier, um einen Add-in anzuzeigen"/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Klicken Sie hier, um  aCat Add-in anzuzeigen"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
