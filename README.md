@@ -2,11 +2,10 @@
 
 In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates für das CRM „aCat“ erarbeitet. Die inhaltliche Gliederung sieht wie folgt aus:
 
-   1. A numbered list
-              1. A nested numbered list
-              2. Which is numbered
-          2. Which is numbered
-   
+   * Item 1
+   * Item 2
+     * Sub Item 1
+     * Sub Item 2
 
 
 ## JavaScript
