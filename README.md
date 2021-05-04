@@ -2,13 +2,13 @@
 
 In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates für das CRM „aCat“ erarbeitet. Die inhaltliche Gliederung sieht wie folgt aus:
 
-    -	Prüfung der technischen Anforderungen:
-        -	Plattformübersicht für Office-Add-ins
-        -	Kommunikation via Rest-Schnittstellen zwischen Add-in und Server
+     -	Prüfung der technischen Anforderungen:
+            *Plattformübersicht für Office-Add-ins
+            *Kommunikation via Rest-Schnittstellen zwischen Add-in und Server
     -	Erstellung eines Prototyps zum Einfügen von Feld-markern in ein Word-Dokument
     -	Erweiterung um:
-        -	 Einfügen von Blockern
-        -	Einfügen von Bedingungen
+        	*Einfügen von Blockern
+        	*Einfügen von Bedingungen
     -	Dokumentation
 
 
