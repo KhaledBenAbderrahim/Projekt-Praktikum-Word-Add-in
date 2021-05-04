@@ -16,9 +16,7 @@ In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates fü
    * Dokumentation
 
 
-<p align="center" width="100%">
-    <img width="33%" src="https://user-images.githubusercontent.com/74714706/117035867-1b561480-ad05-11eb-9642-2a20bcd46717.png"> 
-</p>
+
 
 
 
