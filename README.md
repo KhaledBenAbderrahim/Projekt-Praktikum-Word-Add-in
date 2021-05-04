@@ -11,10 +11,10 @@ In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates fü
          - Einfügen von Bedingungen
    - Dokumentation
 
-   - Bullet list
-              - Nested bullet
-                  - Sub-nested bullet etc
-          - Bullet list item 2 
+   * Bullet list
+              * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
    
 
 
