@@ -13,6 +13,10 @@ In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates fü
 
 ![logo-filled](https://user-images.githubusercontent.com/74714706/117036446-bcdd6600-ad05-11eb-8b2a-a8c748134611.png)
 
+<p align="left" width="100%">
+    <img width="33%" src="https://i.stack.imgur.com/RJj4x.png"> 
+</p>
+
 
 
 # Taskpane Datei :
