@@ -7,9 +7,14 @@ In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates fü
          - Kommunikation via Rest-Schnittstellen zwischen Add-in und Server
    - Erstellung eines Prototyps zum Einfügen von Feld-markern in ein Word-Dokument
    - Erweiterung um:
-         -  Einfügen von Blockern
+         - Einfügen von Blockern
          - Einfügen von Bedingungen
    - Dokumentation
+
+   - Bullet list
+              - Nested bullet
+                  - Sub-nested bullet etc
+          - Bullet list item 2 
    
 
 
