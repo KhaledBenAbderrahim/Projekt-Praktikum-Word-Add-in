@@ -1,3 +1,7 @@
+<p align="center" width="100%">
+    <img width="33%" src="https://user-images.githubusercontent.com/74714706/117035867-1b561480-ad05-11eb-9642-2a20bcd46717.png"> 
+</p>
+
 # Allgemeine Projekt Vorstellung
 
 In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates für das CRM „aCat“ erarbeitet. Die inhaltliche Gliederung sieht wie folgt aus:
@@ -11,7 +15,6 @@ In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates fü
      * Einfügen von Bedingungen
    * Dokumentation
 
-![logo-filled](https://user-images.githubusercontent.com/74714706/117036446-bcdd6600-ad05-11eb-8b2a-a8c748134611.png)
 
 <p align="center" width="100%">
     <img width="33%" src="https://user-images.githubusercontent.com/74714706/117035867-1b561480-ad05-11eb-9642-2a20bcd46717.png"> 
