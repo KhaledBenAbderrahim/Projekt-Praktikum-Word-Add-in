@@ -1,6 +1,15 @@
-# Office-Addin-TaskPane-JS
+# Allgemeine Projekt Vorstellung
 
-This repository contains the source code used by the [Yo Office generator](https://github.com/OfficeDev/generator-office) when you create a new Office Add-in that appears in the task pane. You can also use this repository as a sample to base your own project from if you choose not to use the generator. 
+In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates für das CRM „aCat“ erarbeitet. Die inhaltliche Gliederung sieht wie folgt aus:
+    •	Prüfung der technischen Anforderungen:
+        o	Plattformübersicht für Office-Add-ins
+        o	Kommunikation via Rest-Schnittstellen zwischen Add-in und Server
+    •	Erstellung eines Prototyps zum Einfügen von Feld-markern in ein Word-Dokument
+    •	Erweiterung um:
+        o	 Einfügen von Blockern
+        o	Einfügen von Bedingungen
+    •	Dokumentation
+
 
 ## JavaScript
 
