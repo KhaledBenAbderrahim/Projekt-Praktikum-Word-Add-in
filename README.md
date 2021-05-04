@@ -11,6 +11,8 @@ In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates fü
      * Einfügen von Bedingungen
    * Dokumentation
 
+https://github.com/KhaledBenAbderrahim/Projekt-Praktikum-Word-Add-in/issues/1#issue-875623414
+
 
 ## JavaScript
 
