@@ -4,7 +4,7 @@
 
 # Allgemeine Projekt Vorstellung
 
-In diesem Projekt ich habe ein Add-in für Word zur Erstellung von Templates für das CRM „aCat“ erarbeitet. Die inhaltliche Gliederung sieht wie folgt aus:
+In diesem Projekt , habe ich ein Add-in für Word zur Erstellung von Templates für das CRM „aCat“ erarbeitet. Die inhaltliche Gliederung sieht wie folgt aus:
 
    * Prüfung der technischen Anforderungen:
      * Plattformübersicht für Office-Add-ins
